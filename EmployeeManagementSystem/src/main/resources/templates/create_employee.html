@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Employee</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<!-- <link rel="stylesheet" href="style.css">-->
+</head>
+<body>
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<!-- Brand -->
+		<a class="navbar-brand" href="#">Employee Management System</a>
+
+		<!-- Toggler/collapsibe Button -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Navbar links -->
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/employees}">Employee Management</a></li>
+			</ul>
+		</div>
+	</nav>
+	<br>
+	<br>
+	<div class="form-container"
+		style="background-color: #f9f9f9; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); padding: 30px; max-width: 500px; margin: 0 auto; margin-top: 40px;">
+		<h2 style="text-align: center; padding: 20px; color: #333;">Create
+			New Employee</h2>
+		<form th:action="@{/employees}" th:object="${employee}" method="post">
+			<label for="firstName"
+				style="display: block; margin-bottom: 10px; color: #555;">Employee
+				First Name:</label> <input type="text" id="firstName" name="firstName"
+				th:field="*{firstName}" placeholder="Enter the first Name" required
+				style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+			<br> <label for="lastName"
+				style="display: block; margin-bottom: 10px; color: #555;">Employee
+				Last Name:</label> <input type="text" id="lastName" name="lastName"
+				th:field="*{lastName}" placeholder="Enter the Last Name" required
+				style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+			<br> <label for="email"
+				style="display: block; margin-bottom: 10px; color: #555;">Employee
+				Email:</label> <input type="text" id="email" name="email"
+				th:field="*{email}" placeholder="Enter the Email" required
+				style="width: 100%; padding: 10px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;">
+			<br>
+			<div class="box-footer">
+				<button type="submit" class="btn btn-primary"
+					style="background-color: #007bff; color: #fff; border: none; border-radius: 5px; padding: 10px 20px; cursor: pointer; font-size: 18px; display: block; margin: 0 auto; transition: background-color 0.3s;">Submit</button>
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>
